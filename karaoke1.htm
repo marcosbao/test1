@@ -1,0 +1,349 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>karaoke</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen" />
+        <link href="css/font-awesome.min.css" media="screen" />
+        <link href="css/carousel.css" rel="stylesheet" media="screen" >
+        <link href="css/no-theme/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" media="screen" >
+        <style>
+        body {
+          background-color: #f7f7f7;
+          color:#393C3D;
+        }
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+          font-weight: bold;
+          line-height: 1.2;
+          text-rendering: optimizelegibility;
+        }
+        .main-search {
+          width: 622px;
+          margin:0 auto;
+          border:1px red #000;
+          z-index: 50;
+          position: relative;
+          top:240px;
+
+
+          background: rgba(57,60,61,0.8);
+          -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+          box-shadow: 0 0 5px rgba(0,0,0,0.5);
+          -moz-border-radius: 3px;
+          -webkit-border-radius: 3px;
+          border-radius: 3px;
+          border: 1px solid rgba(0,0,0,0.8);
+          padding: 4px;
+          line-height: 1.2;
+
+          color:#ddd;
+        }
+        #location{
+          width: 290px;
+        }
+        .input-large,select {
+          font-size: 15px;
+          padding: 10px 12px 11px 12px;
+          border-radius: 2px;
+        }
+        .btn-large{
+          font-size: 13px;
+          padding: 10px 12px 11px 12px;
+          border-radius: 2px;
+        }
+        .main-search .btn-large{
+          margin-top:-3px;
+        }
+        .input-contrast {
+          border: solid 1px #888;
+        }
+
+        .section-intro {
+          margin-bottom: 30px;
+        }
+
+
+        .city-tile-1 {
+          background-position: 0px 0 !important;
+        }
+        .city-tile-2 {
+          background-position: -315px 0 !important;
+        }
+        .city-tile-3 {
+          background-position: -630px 0 !important;
+        }
+        .city-tile-4 {
+          background-position: -945px 0 !important;
+        }
+        .city-tile-5 {
+          background-position: -1260px 0 !important;
+        }
+        .city-tile-6 {
+          background-position: -1575px 0 !important;
+        }
+        .city-tile {
+          background: url(imgs/all-areas.jpg) no-repeat;
+          display: block;
+          width: 315px;
+          height: 165px;
+          margin:0 auto;
+        }
+        .city-tile a {
+          display: block;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          color: #fff;
+          background: rgba(0,0,0,0.2);
+          font-weight: bold;
+          text-align: center;
+        }
+        .city-tile h4 {
+          font-size: 29px;
+          color: #fff;
+          padding-top: 70px;
+          line-height: 1.2;
+          margin: 0;
+          text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+        }
+        .city-tile span{
+          display: none;
+        }
+        .city-tile a:hover{
+          background:rgba(0,0,0,0.3);
+        }
+        .city-tile a:hover span{
+          display:block;
+        }
+        .text-special {
+          font-family: Shift,"Courier","Helvetica Neue",Helvetica,Arial,sans-serif;
+          letter-spacing: 2px;
+        }
+
+        @media (max-width: 750px) {
+          .main-search{display: none;}
+          .carousel-caption p {
+            margin-bottom: 30px;
+            font-size: 18px;
+            line-height: 1.4;
+          }
+        }
+
+.ui-datepicker{border:1px solid #ababab;border-radius:2px;box-shadow:0 0 9px 5px rgba(0,0,0,0.05);background-color:#fefefe;z-index:9999999999;display:none}
+.ui-datepicker-calendar{background:transparent}
+.ui-datepicker-calendar td{border:1px solid #dbdbdb;padding:0;position:relative}
+.ui-datepicker-calendar td a{text-align: center;}
+.ui-datepicker-calendar td:first-child,.ui-datepicker-calendar td:last-child{border-left:0}
+.ui-datepicker-calendar th{text-align:center;color:#959595;font-size:0.8em}
+a.ui-state-default,span.ui-state-default{display:block;padding:0px 0px;text-align:center;font-weight:bold;width:32px;border:1px solid transparent}
+a.ui-state-default:hover,span.ui-state-default:hover{text-decoration:none}
+a.ui-state-default.ui-state-hover,
+a.ui-state-default.ui-state-active,
+a.ui-state-default.ui-state-highlight{background-color:#00b0ff;color:white;text-shadow:0 1px 1px rgba(0,0,0,0.2);border-color:#0695d5;margin:-1px;width:34px}
+.ui-datepicker-prev,.ui-datepicker-next{cursor:pointer}
+.ui-datepicker-prev:before,.ui-datepicker-next:before{font-family:"Glyphicons Halflings", sans-serif;font-weight:normal;font-style:normal;line-height:1;color:#959595;font-size:1.2em}
+.ui-datepicker-prev:hover,.ui-datepicker-prev:hover:before,.ui-datepicker-next:hover,.ui-datepicker-next:hover:before{text-decoration:none}
+.ui-datepicker-prev{float:left}
+.ui-datepicker-prev:before{
+  content:"\e132";
+}
+.ui-datepicker-next{float:right}
+.ui-datepicker-next:before{content:"\e131"}
+.ui-datepicker-title{text-align:center}
+a.ui-state-default{color:#393c3d}
+span.ui-state-default{color:#dbdbdb}
+.ui-datepicker-header{font-weight:bold;padding:15px}
+.ui-datepicker-buttonpane{padding:5px}
+.ui-datepicker-close{color:#00b0ff;background:transparent;border:0;text-align:center}
+.ui-datepicker-current{display:none}
+        </style>
+    </head>
+    <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Karaoke-Box</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a><i class="glyphicon glyphicon-search">ff</i></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+     <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" style="">
+      <form action="/s" id="" class="main-search">
+        <select id="capacity" name="guests" class="search-option small">
+          <option value="1">1 Person</option>
+          <option value="2">2 Persons</option>
+          <option value="3">3 Persons</option>
+        </select>
+        <input type="text" id="date" class="checkin search-option input-large input-contrast ui-datepicker-target" name="checkin" placeholder="Date">
+
+        <select id="from" name="from" class="search-option small">
+          <option value="18:00">18:00</option><option value="18:15">18:15</option><option value="18:30">18:30</option><option value="18:45">18:45</option><option value="19:00">19:00</option><option value="19:15">19:15</option><option value="19:30">19:30</option><option value="19:45">19:45</option><option value="20:00">20:00</option><option value="20:15">20:15</option><option value="20:30">20:30</option><option value="20:45">20:45</option><option value="21:00">21:00</option><option value="21:15">21:15</option><option value="21:30">21:30</option><option value="21:45">21:45</option><option value="22:00">22:00</option><option value="22:15">22:15</option><option value="22:30">22:30</option><option value="22:45">22:45</option><option value="23:00">23:00</option><option value="23:15">23:15</option><option value="23:30">23:30</option><option value="23:45">23:45</option><option value="00:00">00:00</option><option value="00:15">00:15</option><option value="00:30">00:30</option><option value="00:45">00:45</option><option value="01:00">01:00</option>
+        </select>        
+        <select id="to" name="to" class="search-option small">
+          <option value="18:00">18:00</option><option value="18:15">18:15</option><option value="18:30">18:30</option><option value="18:45">18:45</option><option value="19:00">19:00</option><option value="19:15">19:15</option><option value="19:30">19:30</option><option value="19:45">19:45</option><option value="20:00">20:00</option><option value="20:15">20:15</option><option value="20:30">20:30</option><option value="20:45">20:45</option><option value="21:00">21:00</option><option value="21:15">21:15</option><option value="21:30">21:30</option><option value="21:45">21:45</option><option value="22:00">22:00</option><option value="22:15">22:15</option><option value="22:30">22:30</option><option value="22:45">22:45</option><option value="23:00">23:00</option><option value="23:15">23:15</option><option value="23:30">23:30</option><option value="23:45">23:45</option><option value="00:00">00:00</option><option value="00:15">00:15</option><option value="00:30">00:30</option><option value="00:45">00:45</option><option value="01:00">01:00</option>
+        </select>
+        <button type="submit" class="btn btn-primary btn-large btn-contrast" id="submit_location">
+               Rechercher
+            </button>
+      </form><!-- /.searchform -->
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="imgs/bg1.jpg" data-src="First slide" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Example1.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-large btn-primary" href="#">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="imgs/bg2.jpg" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Example2.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="imgs/bg3.jpg" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Example3.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-large btn-primary" href="#">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      <!-- search form -->
+
+    </div><!-- /.carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-sm-12 section-intro">
+          <h3>Welcome To Karaoke-Box</h3>
+          <p>We provide 6 wonderful places....</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="city-tile-1 city-tile">
+            <a href="#">
+              <h4 class="text-special">Area1</h4>
+              <span>info1</span>
+            </a>
+          </div>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="city-tile-2 city-tile">
+            <a href="#">
+              <h4 class="text-special">Area2</h4>
+              <span>info2</span>
+            </a>
+          </div>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="city-tile-3 city-tile">
+            <a href="#">
+              <h4 class="text-special">Area3</h4>
+              <span>info3</span>
+            </a>
+          </div>
+        </div><!-- /.col-sm-4 -->
+      </div><!-- /.row -->
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="city-tile-4 city-tile">
+            <a href="#">
+              <h4 class="text-special">Area4</h4>
+              <span>info4</span>
+            </a>
+          </div>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="city-tile-5 city-tile">
+            <a href="#">
+              <h4 class="text-special">Area5</h4>
+              <span>info5</span>
+            </a>
+          </div>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="city-tile-6 city-tile">
+            <a href="#">
+              <h4 class="text-special">Area6</h4>
+              <span>info6</span>
+            </a>
+          </div>
+        </div><!-- /.col-sm-4 -->
+      </div><!-- /.row -->
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/holder.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+      $("#date").datepicker({ firstDay: 1 });
+      $("#date").datepicker("option", "dateFormat", "dd/mm/yy");
+      //$("#checkin,#checkout").val("10-10-2013");
+//.ui-datepicker-next
+    </script>
+  </body>
+</html>
